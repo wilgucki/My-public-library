@@ -1,0 +1,17 @@
+<phpunit bootstrap="./bootstrap.php">
+    <testsuite name="EnumeratorTestSuite">
+        <directory>./library/Batman</directory>
+    </testsuite>
+	<filter>
+		<whitelist>
+			<directory suffix=".php">../library/Batman</directory>
+		</whitelist>
+	</filter>
+	<logging>
+		<log type="coverage-html" 
+			 target="./reports" 
+			 charset="UTF-8"
+			 yui="true"
+		/>
+	</logging>
+</phpunit>
