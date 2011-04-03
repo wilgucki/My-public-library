@@ -1,4 +1,7 @@
 <?php
+/**
+ * Example of Enum class
+ */
 class UserStatus extends \Batman\Enum
 {
 	const DELETED = -1;
