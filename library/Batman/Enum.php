@@ -64,4 +64,13 @@ abstract class Enum
 	{
 		return array_values(self::getConstants());
 	}
+
+    /**
+     * Returns defined constants as array
+     * @return array
+     */
+    final static public function toArray()
+    {
+        return self::getConstants();
+    }
 }

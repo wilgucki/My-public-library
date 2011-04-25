@@ -52,4 +52,15 @@ class EnumTest extends \PHPUnit_Framework_TestCase
         $names2 = \EnumTest2::getNames();
         $this->assertTrue($names1 !== $names2);
     }
+
+    public function testToArray()
+    {
+        $array = \UserStatus::toArray();
+        $expected = array(
+            'DELETED' => -1,
+            'BLOCKED' => 0,
+            'ACTIVE' => 1
+        );
+        $this->assertTrue($array === $expected);
+    }
 }
