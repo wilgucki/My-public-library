@@ -18,7 +18,7 @@ abstract class Enum
 	 * Defined class constants
 	 * @var array
 	 */
-	private static $_consts = null;
+	private static $_consts = array();
 	
 	/**
 	 * Prevents from creating Enum object
@@ -36,15 +36,15 @@ abstract class Enum
 	 */
 	final static private function getConstants()
 	{
-		if(self::$_consts === null) {
-			$class = get_called_class();
+        $class = get_called_class();
+		if(!isset(self::$_consts[$class])) {
 			if($class == __CLASS__) {
 				throw new \BadMethodCallException('You can\'t access constants from Enum class');
 			}
 			$reflection = new \ReflectionClass($class);
-			self::$_consts = $reflection->getConstants();
+			self::$_consts[$class] = $reflection->getConstants();
 		}
-		return self::$_consts;
+		return self::$_consts[$class];
 	}
 	
 	/**

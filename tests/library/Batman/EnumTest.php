@@ -45,4 +45,11 @@ class EnumTest extends \PHPUnit_Framework_TestCase
 		$values = \UserStatus::getValues();
 		$this->assertTrue(count($names) == count($values));
 	}
+
+    public function testEnumsStaticArray()
+    {
+        $names1 = \EnumTest1::getNames();
+        $names2 = \EnumTest2::getNames();
+        $this->assertTrue($names1 !== $names2);
+    }
 }
